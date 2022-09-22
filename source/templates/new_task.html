@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add new article</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+    <div class="head">
+        <h1>Add new task</h1>
+    </div>
+    <div class="body">
+        <form action="/task/new_task/" method="POST">
+            {% csrf_token %}
+            <textarea name="description" id="description" cols="30" rows="10">Задача</textarea>
+            <br>
+            <label for="status"> Укажите статус</label>
+
+            <select name="status" id="status">
+                {% for choice in choices %}
+                <option value="{{choice.0}}">{{choice.1}}</option>
+                <!-- <option value="in_progress">В процессе</option>
+                <option value="done">Выполнено</option> -->
+                {% endfor %}
+            </select>
+            <br>
+            <label for="date">Введите дату выполнения</label>
+            <input type="date" name="date" id="date">
+            <br>
+            <input type="submit">
+        </form>
+    </div>
+
+
+</body>
+</html>

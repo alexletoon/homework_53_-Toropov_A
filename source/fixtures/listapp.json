@@ -1,0 +1,22 @@
+[
+{
+  "model": "list_app.task",
+  "pk": 1,
+  "fields": {
+    "description": "new task",
+    "status": "new",
+    "deadline_date": "2022-12-01",
+    "created_at": "2022-09-19"
+  }
+},
+{
+  "model": "list_app.task",
+  "pk": 2,
+  "fields": {
+    "description": "визит к стоматологу",
+    "status": "in_progress",
+    "deadline_date": "2023-01-23",
+    "created_at": "2022-09-19"
+  }
+}
+]
