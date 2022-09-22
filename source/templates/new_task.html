@@ -15,7 +15,9 @@
     <div class="body">
         <form action="/task/new_task/" method="POST">
             {% csrf_token %}
-            <textarea name="description" id="description" cols="30" rows="10">Задача</textarea>
+            <input type="text" name="task"> Введите задачу
+            <br>
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Описание"></textarea>
             <br>
             <label for="status"> Укажите статус</label>
 

@@ -20,7 +20,7 @@
             <p class="task">Задача: <br> {{task.description}} </p>
             <p class="status">Status - {{task.status}} </p>
             <p class="deadline">Deadline - {{task.deadline_date}} </p>
-            <p><a href="task/?id={{ task.id }}">Подробнее</a></p>
+            <p><a href="task/{{ task.id }}">Подробнее</a></p>
             <hr>
         {% endfor %}
     </div>
