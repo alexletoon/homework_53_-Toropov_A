@@ -12,7 +12,8 @@
 <body>
     <div class="head">
         <h1 class="main-head">Welcome to To-Do-List</h1>
-        <a href="/task/new_task">Добавить новую задачу</a>
+        <!-- <a href="/task/new_task">Добавить новую задачу</a> -->
+        <a href="{% url 'add_task' %}">Добавить новую задачу</a>
     </div>
     <div class="body">
         <h2 class="sec-head">Список задач</h2>
@@ -20,7 +21,9 @@
             <p class="task">Задача: <br> {{task.description}} </p>
             <p class="status">Status - {{task.status}} </p>
             <p class="deadline">Deadline - {{task.deadline_date}} </p>
-            <p><a href="task/{{ task.id }}">Подробнее</a></p>
+            <!-- <p><a href="task/{{ task.id }}">Подробнее</a></p> -->
+            <p><a href="{% url 'task_view' task.id %}">Подробнее</a></p>
+
             <hr>
         {% endfor %}
     </div>

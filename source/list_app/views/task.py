@@ -1,6 +1,6 @@
 
 from http.client import HTTPResponse
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.http import HttpResponseNotFound
 from list_app.models import Task
 
@@ -20,7 +20,7 @@ def add_task_view(request):
         'deadline_date': request.POST.get('date')
     }
     task = Task.objects.create(**task_data)
-    return redirect(f'/')
+    return redirect(reverse('index_view'))
 
 
 def display_task_view(request, pk):
