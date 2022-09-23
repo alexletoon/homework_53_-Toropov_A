@@ -1,41 +1,35 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add new article</title>
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
-</head>
-<body>
-    <div class="head">
-        <h1>Add new task</h1>
-    </div>
-    <div class="body">
-        <form action="/task/new_task/" method="POST">
-            {% csrf_token %}
-            <input type="text" name="task"> Введите задачу
-            <br>
-            <textarea name="description" id="description" cols="30" rows="10" placeholder="Описание"></textarea>
-            <br>
-            <label for="status"> Укажите статус</label>
+{% extends 'base.html' %}
 
-            <select name="status" id="status">
-                {% for choice in choices %}
-                <option value="{{choice.0}}">{{choice.1}}</option>
-                <!-- <option value="in_progress">В процессе</option>
-                <option value="done">Выполнено</option> -->
-                {% endfor %}
-            </select>
-            <br>
-            <label for="date">Введите дату выполнения</label>
-            <input type="date" name="date" id="date">
-            <br>
-            <input type="submit">
-        </form>
-    </div>
+{% block menu %}
+<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'index_view' %}">Home</a>
+</li>
+{%endblock%}
 
-
-</body>
-</html>
+{% block container %}
+<div class="head">
+    <h1>Add new task</h1>
+</div>
+<div class="body">
+    <form action="/task/new_task/" method="POST">
+        {% csrf_token %}
+        <label for="task">Введите задачу</label>
+        <input class="task" type="text" name="task"> 
+        <br>
+        <label for="description"> Введите описание </label>
+        <textarea class="desc" name="description" id="description" cols="30" rows="10" placeholder="Описание"></textarea>
+        <br>
+        <label for="status"> Укажите статус</label>
+        <select class="stats" name="status" id="status">
+            {% for choice in choices %}
+            <option value="{{choice.0}}">{{choice.1}}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="date">Введите дату выполнения</label>
+        <input class="date" type="date" name="date" id="date" required>
+        <br>
+        <input type="submit">
+    </form>
+</div>
+{% endblock%}

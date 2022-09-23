@@ -1,26 +1,25 @@
-{%load static%}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task description</title>
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
-</head>
-<body>
-    <div class="head">
-        <h1 class="main-head">
-            Описание задачи
-        </h1>
-    </div>
-    <div class="body">
-        <p class="task">Task description <br> {{ task.description }}</p>
-        <hr>
-        <p>Status: {{task.status}} </p>
-        <hr>
-        <p> Finish by: {{task.date}} </p>
-    </div>
+{% extends 'base.html'%}
 
-</body>
-</html>
+{%block title%}{%endblock%}
+
+{%block menu%}
+<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'index_view' %}">Home</a>
+</li>
+{%endblock%}
+
+
+{% block container %}
+<div class="head">
+    <h1 class="main-head">
+        Описание задачи
+    </h1>
+</div>
+<div class="body">
+    <p class="task">Task description <br> {{ task.description }}</p>
+    <hr>
+    <p>Status: {{task.status}} </p>
+    <hr>
+    <p> Finish by: {{task.date}} </p>
+</div>
+{% endblock %}
