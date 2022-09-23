@@ -17,7 +17,8 @@ def add_task_view(request):
     task_data = {
         'description': request.POST.get('description'),
         'status': request.POST.get('status'),
-        'deadline_date': request.POST.get('date')
+        'deadline_date': request.POST.get('date'),
+        'task': request.POST.get('task')
     }
     task = Task.objects.create(**task_data)
     return redirect(reverse('index_view'))

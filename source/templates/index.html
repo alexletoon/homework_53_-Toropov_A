@@ -7,7 +7,7 @@
 <h5> Список задач</h5>
 {%for task in tasks%}
 <hr class="line">
-<p class="task">Задача: <br> {{task.description}} </p>
+<p class="task">Задача: <br> {{task.task}} </p>
 {% for choice in choices %}
     {%if task.status == choice.0%}
         <p class="status">Статус - {{choice.1}} </p>
