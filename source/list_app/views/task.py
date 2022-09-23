@@ -26,6 +26,7 @@ def add_task_view(request):
 def display_task_view(request, pk):
     task = get_object_or_404(Task, pk=pk)
     context = {
-        "task": task
+        "task": task,
+        'choices': Choices.choices
     }
     return render(request, 'task.html', context=context)

@@ -11,15 +11,21 @@
 
 {% block container %}
 <div class="head">
-    <h1 class="main-head">
+    <h3 class="main-head">
         Описание задачи
     </h1>
 </div>
 <div class="body">
-    <p class="task">Task description <br> {{ task.description }}</p>
+    <p class="task">Задача: {{task.task}}</p>
+    <p class="task">Описание: <br> {{ task.description }}</p>
     <hr>
-    <p>Status: {{task.status}} </p>
+    {% for choice in choices %}
+        {%if task.status == choice.0 %}
+            <p> Статус: {{choice.1}} </p>
+        {%endif%}
+    {% endfor %}
+
     <hr>
-    <p> Finish by: {{task.date}} </p>
+    <p> Закончить до: {{task.deadline_date}} </p>
 </div>
 {% endblock %}
